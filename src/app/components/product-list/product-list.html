@@ -1,0 +1,32 @@
+<div class="product-list">
+    <div class="filters">
+        <h2>Bienvenue chez Beauty Fragrance✨ 
+            Découvrez un univers où chaque flacon raconte une histoire…</h2>
+            <h2>Explorez, respirez, trouvez votre signature.</h2>
+        <h3>Nos catégorie</h3>
+        <div class="category-buttons">
+            <button
+            *ngFor="let category of categories"
+            [class.active]="selectedCategory === category"
+            (click)="filterByCategory(category)"
+            class="category-btn">{{category}}</button>
+        </div>
+    </div>
+    
+    <div class="products-grid">
+        <div *ngFor="let product of filteredProducts" class="product-card">
+            <img [src]="product.imageUrl" [alt]="product.name" class="product-image">
+            <div class="product-info">
+                <h3 class="product-name">{{product.name}}</h3>
+                <p class="product-brand">{{product.brand}}</p>
+                <p class="product-description">{{ product.description }}</p>
+                <p class="product-volume">{{ product.volume }}</p>
+                <p class="product-price">{{ product.price }} DT</p>
+                <button (click)="addToCart(product)"
+                class="add-to-cart-btn"
+                [disabled]="!product.inStock">
+            {{product.inStock ? 'Ajouter au panier':'Rupture de stock'}}</button>
+            </div>
+        </div>
+    </div>
+</div>
