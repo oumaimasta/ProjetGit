@@ -12,9 +12,18 @@
             class="category-btn">{{category}}</button>
         </div>
     </div>
+<div class="search-bar">
+  <input 
+    type="text" 
+    placeholder="Rechercher un parfum..."
+    [(ngModel)]="searchTerm"
+    (input)="onSearchChange()"
+  />
+</div>
+
     
     <div class="products-grid">
-        <div *ngFor="let product of filteredProducts" class="product-card">
+        <div *ngFor="let product of displayedProducts" class="product-card">
             <img [src]="product.imageUrl" [alt]="product.name" class="product-image">
             <div class="product-info">
                 <h3 class="product-name">{{product.name}}</h3>
@@ -28,5 +37,5 @@
             {{product.inStock ? 'Ajouter au panier':'Rupture de stock'}}</button>
             </div>
         </div>
-    </div>
+    </div>
 </div>

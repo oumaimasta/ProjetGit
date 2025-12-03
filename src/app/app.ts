@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, RouterOutlet } from '@angular/router';
 import { Header } from './components/header/header';
-
+import { NavbarComponent } from './navbar/navbar.component';
 @Component({
   selector: 'app-root',
   standalone: true,  // Important : standalone
@@ -11,7 +11,8 @@ import { Header } from './components/header/header';
     CommonModule, 
     RouterOutlet, 
     RouterModule,
-    Header  
+    Header, 
+    NavbarComponent
   ],
   templateUrl: './app.html',
   styleUrl: './app.scss'

@@ -1,0 +1,47 @@
+<nav class="navbar">
+  <div class="navbar-container">
+    <!-- Logo -->
+    <div class="navbar-logo">
+      <a href="/">Ma Boutique</a>
+    </div>
+
+    <!-- Barre de recherche -->
+    <div class="navbar-search">
+      <input 
+        type="text" 
+        [(ngModel)]="searchQuery"
+        (keyup.enter)="onSearch()"
+        placeholder="Rechercher un produit..."
+        class="search-input"
+      />
+      <button (click)="onSearch()" class="search-button">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="8"></circle>
+          <path d="m21 21-4.35-4.35"></path>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Menu hamburger mobile -->
+    <button class="menu-toggle" (click)="toggleMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <!-- Navigation links -->
+    <div class="navbar-links" [class.active]="isMenuOpen">
+      <a href="/produits">Produits</a>
+      <a href="/categories">Catégories</a>
+      <a href="/panier">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="9" cy="21" r="1"></circle>
+          <circle cx="20" cy="21" r="1"></circle>
+          <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+        </svg>
+        Panier
+      </a>
+      <a href="/compte" class="btn-compte">Mon Compte</a>
+    </div>
+  </div>
+</nav>
