@@ -1,4 +1,4 @@
-                                                                                                                                                                                                                                                                                                      import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Product } from '../../models/product.model';
 import { ProductService } from '../../services/product';
 import { CartService } from '../../services/cart';
@@ -20,7 +20,7 @@ export class ProductList implements OnInit {
   categories: string[] = ['Tous', 'Homme', 'Femme'];
   selectedCategory: string = 'Tous';
 
-  searchTerm: string = ""; // ← champ de recherche
+  searchTerm: string = "";
 
   constructor(
     private productService: ProductService,
@@ -32,22 +32,22 @@ export class ProductList implements OnInit {
     this.displayedProducts = this.products;
   }
 
-  /** Filtre par catégorie */
+  
   filterByCategory(category: string): void {
     this.selectedCategory = category;
     this.applyFilters();
   }
 
-  /** Filtre par recherche + catégorie */
+ 
   applyFilters(): void {
     let filtered = this.products;
 
-    // Filtre par catégorie
+  
     if (this.selectedCategory !== 'Tous') {
       filtered = filtered.filter(p => p.category === this.selectedCategory);
     }
 
-    // Filtre par recherche
+    
     if (this.searchTerm.trim() !== "") {
       filtered = filtered.filter(p =>
         p.name.toLowerCase().includes(this.searchTerm.toLowerCase())
@@ -57,15 +57,13 @@ export class ProductList implements OnInit {
     this.displayedProducts = filtered;
   }
 
-  /** Quand on écrit dans la recherche */
+  
   onSearchChange() {
     this.applyFilters();
   }
+
   addToCart(product: Product): void {
-  this.cartService.addToCart(product);
-  alert(`${product.name} ajouté au panier !`);
-}
-
-
-  
+    this.cartService.addToCart(product);
+    alert(`${product.name} ajouté au panier !`);
+  }
 }
